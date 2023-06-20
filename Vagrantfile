@@ -25,7 +25,9 @@ Vagrant.configure("2") do |config|
   config.vm.box = "bento/almalinux-8"
   config.vm.define env_box_name
   config.vm.hostname = env_box_name
-  config.vm.synced_folder env_share_path, env_share_path
+  # config.vm.synced_folder env_share_path, env_share_path
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+
   config.vm.network "forwarded_port", guest: 10000, host: 10000
 
   config.vm.provider "virtualbox" do |prl|
