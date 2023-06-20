@@ -11,8 +11,8 @@ sudo systemctl start docker
 
 systemctl status docker
 
-sudo usermod -aG docker vagrant
-sudo id vagrant
+sudo usermod -aG docker $USER
+sudo id $USER
 
 docker info
 
