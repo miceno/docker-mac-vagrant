@@ -22,17 +22,16 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   
-  config.vm.box = "bento/ubuntu-21.10"
+  config.vm.box = "bento/debian-12"
   config.vm.define env_box_name
   config.vm.hostname = env_box_name
   config.vm.synced_folder env_share_path, env_share_path
   config.ssh.extra_args = ["-t", "cd #{env_share_path}; bash --login"]
 
-  config.vm.provider "parallels" do |prl|
+  config.vm.provider "virtualbox" do |prl|
     prl.memory = env_ram
     prl.cpus = env_cpus
     prl.name = env_box_name
-    prl.update_guest_tools = true
   end
 
   config.vm.provision :docker

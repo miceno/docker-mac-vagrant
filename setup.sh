@@ -1,7 +1,7 @@
 #!/bin/sh
 
 brew install vagrant
-vagrant plugin install vagrant-parallels
+vagrant plugin install vagrant-vbguest
 vagrant plugin install vagrant-env
 vagrant plugin install vagrant-hostmanager
 
