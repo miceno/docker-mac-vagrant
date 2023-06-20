@@ -37,6 +37,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision :docker
   config.vm.provision "shell", path: "provision.sh"
 
+  config.vm.network "forwarded_port", guest: 10000, host: 10000
+
   config.trigger.after :up do |trigger|
     trigger.warn = "Configuring SSH and Docker via post-provisioning trigger..."
     trigger.run = {
